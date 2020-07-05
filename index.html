@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira+Extra+Condensed:wght@700;800;900&display=swap">
+    <link href="styles.css" rel="stylesheet">
+    <title>Image Editor</title>
+</head>
+<body>
+    <section class="main">
+        <div class="container">            
+            <div class="leftSide">                
+                <h1>Image Editor</h1>
+                <form id="sliderForm">
+                    <p>
+                        <label for="gs">Grayscale</label>
+                        <input id="gs" name="gs" type="range" min="" max="100" value="0" class="slider">
+                    </p>
+                
+                    <p>
+                        <label for="blur">Blur</label>
+                        <input id="blur" name="blur" type="range" min="0" max="" value="0" class="slider">
+                    </p>
+
+                    <p>
+                        <label for="hue-rotate">Hue-Rotate</label>
+                        <input id="hueRotate" name="hue-rotate" type="range" min="0" max="" value="0" class="slider">
+                    </p>
+
+                    <p>
+                        <label for="sepia">Sepia</label>
+                        <input id="sepia" name="sepia" type="range" min="0" max="" value="0" class="slider">
+                    </p>
+                    
+                    <button type="reset">Reset</button>
+                </form>                
+            </div>
+            <div class="rightSide">
+                <form id="myForm">
+                    <input type="text" placeholder="Copy Image URL..." id="imageUrl">
+                    <button type="submit">Change Image</button>
+                </form>
+                <div class="imageContainer">
+                    <img src="imgPlaceholder.png" alt="" class="image">
+                </div>
+            </div>                        
+        </div>
+    </section>
+    <script>
+        let myForm = document.getElementById("myForm");
+        let imageUrl = document.getElementById("imageUrl");
+        let image = document.querySelector(".image");
+
+        myForm.addEventListener('submit', function(e){
+            e.preventDefault();
+
+            image.src = imageUrl.value;
+        })
+
+        let slider = document.querySelectorAll(".slider");        
+
+        for(let i = 0; i<slider.length; i++){
+            slider[i].addEventListener('input', filterImage)
+        }
+
+        function filterImage(){
+            let gs = document.getElementById("gs").value;
+            let blur = document.getElementById("blur").value;
+            let hueRotate = document.getElementById("hueRotate").value;
+            let sepia = document.getElementById("sepia").value;
+
+            image.style.filter = `grayscale(${gs}%) blur(${blur}px) hue-rotate(${hueRotate}deg) sepia(${sepia}%)`   
+            console.log(image.style.filter)         
+        }
+
+
+        let sliderForm = document.getElementById("sliderForm");
+        sliderForm.addEventListener('reset', function(){
+            sliderForm.reset();
+            imageUrl.value = "";            
+            //image.style.filter = 'none'
+            setTimeout(filterImage, 0)
+        })
+    </script>
+</body>
+</html>

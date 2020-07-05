@@ -1,0 +1,76 @@
+* {
+  margin: 0;  padding: 0;  box-sizing: border-box;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;  
+}
+h1{
+  font-family: 'Saira Extra Condensed', sans-serif;
+  color: #FFF;  font-size: 72px;  margin-bottom: 30px;
+}
+label{
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.main {
+  width: 100%;  float: left;
+}
+.container {
+  width: 100%;  display: flex;
+}
+.leftSide {
+  width: 25%;  height: 100vh;
+  background: #333;  padding: 40px;
+}
+.leftSide h3 {
+  color: #fff;  font-size: 30px;
+  font-weight: normal;  margin-bottom: 20px;
+}
+.leftSide p {
+  margin-bottom: 15px;
+}
+.leftSide label {
+  color: #fff;  display: block;  padding-bottom: 10px;
+}
+.leftSide button {
+  float: right;  background: #fff;  border: none;
+  height: 35px;  padding: 0 26px;  font-size: 15px;
+  color: #000;  cursor: pointer;  margin-top: 20px;
+}
+.slider {
+  -webkit-appearance: none;
+  width: 100%;  height: 15px;  margin-bottom: 30px;
+  border-radius: 5px;  background: #d3d3d3;  outline: none;
+  opacity: 0.7;  -webkit-transition: 0.2s;  transition: opacity 0.2s;
+}
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;  width: 25px;  height: 25px;  border-radius: 50%;
+  background: #4caf50;  cursor: pointer;
+}
+.slider::-moz-range-thumb {
+  width: 25px;  height: 25px;  border-radius: 50%;
+  background: #4caf50;  cursor: pointer;
+}
+.rightSide {
+  width: 75%;    padding: 50px;
+}
+.imageContainer {
+  width: 100%;  height: 80vh;  overflow: hidden;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+
+}
+.imageContainer img {
+  width: 100%;
+}
+.rightSide input[type="text"] {
+  width: 85%;  margin-bottom: 20px;  height: 45px;
+  padding: 10px;  border: 2px solid #CCC;
+  font-size: 18px;
+}
+button {
+  float: right;  background: #333;  border: none;  height: 45px;
+  padding: 0 26px;  font-size: 15px;  color: #fff;  cursor: pointer;
+  border-radius: 5px; font-weight: bold;
+}
